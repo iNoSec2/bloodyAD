@@ -130,8 +130,6 @@ def getFormatters():
         """
         def wrapper(val):
             if isinstance(val, list):
-                if len(val) == 1:
-                    return format_func(val[0])
                 return [format_func(v) for v in val]
             else:
                 return format_func(val)

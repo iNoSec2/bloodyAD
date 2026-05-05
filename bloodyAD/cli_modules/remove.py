@@ -101,12 +101,14 @@ async def dnsRecord(
         record = dns.Record(raw_record)
         tmp_record = dns.Record()
 
-        if not ttl:
-            ttl = record["TtlSeconds"]
+        if ttl:
+            tmp_ttl = ttl
+        else:
+            tmp_ttl = record["TtlSeconds"]      
         tmp_record.fromDict(
             data,
             dnstype,
-            ttl,
+            tmp_ttl,
             record["Rank"],
             record["Serial"],
             preference,
