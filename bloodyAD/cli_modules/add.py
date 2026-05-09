@@ -573,7 +573,7 @@ async def shadowCredentials(conn: ConnectionHandler, target: str, path: str = "C
         )
 
     LOG.debug("Generating KeyCredential")
-    keyCredential = KeyCredential.generate_self_signed_certificate(target_dn)
+    keyCredential = KeyCredential.generate_self_signed_certificate(target_sAMAccountName)
     
     LOG.info(
         "KeyCredential generated with following sha256 of RSA key: %s"
